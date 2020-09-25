@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
-import Home from "~/pages/Home";
-import Auth from "~/pages/Auth";
+import Home from "pages/Home";
+import Auth from "pages/Auth";
 
 const HomePage = () => (
   <Route exact path="/">
@@ -16,9 +16,7 @@ const AuthPage = () => (
   </Route>
 );
 
-export default () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+export default ({ isLoggedIn }) => {
   return (
     <Router>
       <Switch>{isLoggedIn ? HomePage() : AuthPage()}</Switch>
