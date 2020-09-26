@@ -5,4 +5,6 @@ import { FIREBASE_CONFIG } from "const/config";
 
 firebase.initializeApp(FIREBASE_CONFIG);
 
+export const instance = firebase;
+
 export const authService = firebase.auth();
