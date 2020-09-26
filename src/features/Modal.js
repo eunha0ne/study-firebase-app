@@ -1,6 +1,8 @@
 import React from "react";
 
-export default ({ message }) => {
+export default ({ data }) => {
+  const { message } = data;
+
   return (
     <article>
       <p>{message}</p>

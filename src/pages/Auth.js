@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { authService } from "app/firebaseInstance";
+import { showModal } from "features/modalSlice";
 
 export default () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isNewAccount, setIsNewAccount] = useState(true);
@@ -26,7 +30,11 @@ export default () => {
         await authService.signInWithEmailAndPassword(email, password);
       }
     } catch (error) {
-      console.warn(error);
+      dispatch(
+        showModal({
+          message: error.message
+        })
+      );
     }
   };
 
