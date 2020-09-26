@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { hideModal } from "features/modalSlice";
+import { hideModal } from "features/modal/modalSlice";
 
 const Modal = ({ message }) => {
   const dispatch = useDispatch();
