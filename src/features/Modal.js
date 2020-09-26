@@ -3,10 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { hideModal } from "features/modalSlice";
 
-export default ({ data }) => {
+const Modal = ({ message }) => {
   const dispatch = useDispatch();
-  const { message } = data;
-
   const onClose = () => {
     dispatch(hideModal());
   };
@@ -18,3 +16,5 @@ export default ({ data }) => {
     </article>
   );
 };
+
+export default Modal;

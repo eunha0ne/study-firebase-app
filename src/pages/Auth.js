@@ -7,7 +7,7 @@ import {
 } from "app/firebaseInstance";
 import { showModal } from "features/modalSlice";
 
-export default () => {
+const Auth = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -113,3 +113,5 @@ export default () => {
     </div>
   );
 };
+
+export default Auth;

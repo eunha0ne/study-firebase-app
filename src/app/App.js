@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 
 import useLoggedInState from "hooks/useLoggedInState";
 
-import Router from "./Router";
-import Modal from "features/Modal";
+import AppRouter from "./Router";
 import Header from "components/Header";
+import Footer from "components/Footer";
+import Modal from "features/Modal";
 
 function App() {
-  const { modal } = useSelector((state) => ({
+  const { modal: modalState } = useSelector((state) => ({
     modal: state.modal
   }));
 
@@ -18,10 +19,10 @@ function App() {
     <>
       <Header />
       <main>
-        <Router isLoggedIn={isLoggedIn} />
-        {modal.isOpen && <Modal data={modal} />}
+        <AppRouter isLoggedIn={isLoggedIn} />
+        {modalState.isOpen && <Modal {...modalState} />}
       </main>
-      <footer>&copy; {new Date().getFullYear()} eunha0ne</footer>
+      <Footer />
     </>
   );
 }

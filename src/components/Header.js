@@ -3,7 +3,7 @@ import { authService } from "app/firebaseInstance";
 
 import useLoggedInState from "hooks/useLoggedInState";
 
-export default () => {
+const Header = () => {
   const isLoggedIn = useLoggedInState();
   const [userName, setUserName] = useState(null);
 
@@ -36,3 +36,5 @@ export default () => {
     </header>
   );
 };
+
+export default Header;
