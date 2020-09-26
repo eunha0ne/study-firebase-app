@@ -3,6 +3,8 @@ import { authService } from "app/firebaseInstance";
 
 import useLoggedInState from "hooks/useLoggedInState";
 
+import Navigation from "./Navigation";
+
 const Header = () => {
   const isLoggedIn = useLoggedInState();
   const [userName, setUserName] = useState(null);
@@ -27,10 +29,13 @@ const Header = () => {
       <h1>Eunha's FireBase App</h1>
       {isLoggedIn && (
         <>
-          <p>
-            환영합니다! <strong>{userName}</strong>
-          </p>
-          <button onClick={onClick}>로그아웃</button>
+          <Navigation />
+          <div>
+            <p>
+              환영합니다! <strong>{userName}</strong>
+            </p>
+            <button onClick={onClick}>로그아웃</button>
+          </div>
         </>
       )}
     </header>
