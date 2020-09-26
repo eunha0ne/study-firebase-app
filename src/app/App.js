@@ -1,31 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
-import Router from "./Router";
-import { authService } from "./firebaseInstance";
+import useLoggedInState from "hooks/useLoggedInState";
 
+import Router from "./Router";
 import Modal from "features/Modal";
+import Header from "components/Header";
 
 function App() {
   const { modal } = useSelector((state) => ({
     modal: state.modal
   }));
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    authService.onAuthStateChanged((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-  }, []);
+  const isLoggedIn = useLoggedInState();
 
   return (
     <>
-      <header>...</header>
+      <Header />
       <main>
         <Router isLoggedIn={isLoggedIn} />
         {modal.isOpen && <Modal data={modal} />}
