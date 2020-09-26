@@ -14,13 +14,24 @@ export default () => {
     }
   }, [isLoggedIn]);
 
+  const onClick = async () => {
+    try {
+      await authService.signOut();
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
   return (
     <header>
-      <h1>FireBase App</h1>
-      {userName && (
-        <p>
-          환영합니다! <strong>{userName}</strong>
-        </p>
+      <h1>Eunha's FireBase App</h1>
+      {isLoggedIn && (
+        <>
+          <p>
+            환영합니다! <strong>{userName}</strong>
+          </p>
+          <button onClick={onClick}>로그아웃</button>
+        </>
       )}
     </header>
   );
