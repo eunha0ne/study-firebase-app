@@ -4,6 +4,7 @@ import { authService } from "app/firebaseInstance";
 import useLoggedInState from "hooks/useLoggedInState";
 
 import Navigation from "./Navigation";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const isLoggedIn = useLoggedInState();
@@ -27,16 +28,15 @@ const Header = () => {
   return (
     <header>
       <h1>Eunha's FireBase App</h1>
+      <Navigation />
+      <SearchBar />
       {isLoggedIn && (
-        <>
-          <Navigation />
-          <div>
-            <p>
-              환영합니다! <strong>{userName}</strong>
-            </p>
-            <button onClick={onClick}>로그아웃</button>
-          </div>
-        </>
+        <article>
+          <p>
+            환영합니다! <strong>{userName}</strong>
+          </p>
+          <button onClick={onClick}>로그아웃</button>
+        </article>
       )}
     </header>
   );
