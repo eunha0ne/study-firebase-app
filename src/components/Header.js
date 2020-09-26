@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header>
       <h1>Eunha's FireBase App</h1>
-      <Navigation />
+      {isLoggedIn && <Navigation />}
       <SearchBar />
       {isLoggedIn && (
         <article>
