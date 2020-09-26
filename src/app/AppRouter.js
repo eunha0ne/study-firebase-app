@@ -5,7 +5,7 @@ import Home from "pages/Home";
 import Auth from "pages/Auth";
 import Settings from "../pages/Settings";
 
-const MainPage = () => (
+const MainTemplate = () => (
   <>
     <Route exact path="/">
       <Home />
@@ -16,7 +16,7 @@ const MainPage = () => (
   </>
 );
 
-const AuthPage = () => (
+const AuthTemplate = () => (
   <Route exact path="/">
     <Auth />
   </Route>
@@ -25,7 +25,7 @@ const AuthPage = () => (
 const AppRouter = ({ isLoggedIn }) => {
   return (
     <Switch>
-      {isLoggedIn ? MainPage() : AuthPage()}
+      {isLoggedIn ? MainTemplate() : AuthTemplate()}
       <Redirect from="*" to="/" />
     </Switch>
   );
