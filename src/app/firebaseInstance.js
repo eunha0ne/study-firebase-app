@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
-import { FIREBASE_CONFIG } from "const/config";
+import { FIREBASE_CONFIG } from "const";
 
 firebase.initializeApp(FIREBASE_CONFIG);
 
