@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import useLoggedInState from "hooks/useLoggedInState";
@@ -6,14 +6,15 @@ import useLoggedInState from "hooks/useLoggedInState";
 import Home from "pages/Home";
 import Auth from "pages/Auth";
 import Settings from "pages/Settings";
+import { authService } from "./firebaseInstance";
 
-const MainTemplate = () => (
+const MainTemplate = ({ user }) => (
   <Switch>
     <Route exact path="/">
       <Home />
     </Route>
     <Route exact path="/settings">
-      <Settings />
+      <Settings user={user} />
     </Route>
   </Switch>
 );
@@ -29,8 +30,17 @@ const AuthTemplate = () => (
 
 const AppRouter = () => {
   const isLoggedIn = useLoggedInState();
+  const [user, setUser] = useState(null);
 
-  return isLoggedIn ? MainTemplate() : AuthTemplate();
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
+  }, []);
+
+  return isLoggedIn ? MainTemplate({ user }) : AuthTemplate();
 };
 
 export default AppRouter;
