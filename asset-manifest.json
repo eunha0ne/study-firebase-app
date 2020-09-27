@@ -1,19 +1,22 @@
 {
   "files": {
-    "main.js": "/study-firebase-app/static/js/main.4009e2ca.chunk.js",
-    "main.js.map": "/study-firebase-app/static/js/main.4009e2ca.chunk.js.map",
+    "main.css": "/study-firebase-app/static/css/main.9eaae338.chunk.css",
+    "main.js": "/study-firebase-app/static/js/main.90fbcc24.chunk.js",
+    "main.js.map": "/study-firebase-app/static/js/main.90fbcc24.chunk.js.map",
     "runtime-main.js": "/study-firebase-app/static/js/runtime-main.dbd9457f.js",
     "runtime-main.js.map": "/study-firebase-app/static/js/runtime-main.dbd9457f.js.map",
-    "static/js/2.5c36ff71.chunk.js": "/study-firebase-app/static/js/2.5c36ff71.chunk.js",
-    "static/js/2.5c36ff71.chunk.js.map": "/study-firebase-app/static/js/2.5c36ff71.chunk.js.map",
+    "static/js/2.b5cb41f7.chunk.js": "/study-firebase-app/static/js/2.b5cb41f7.chunk.js",
+    "static/js/2.b5cb41f7.chunk.js.map": "/study-firebase-app/static/js/2.b5cb41f7.chunk.js.map",
     "index.html": "/study-firebase-app/index.html",
-    "precache-manifest.c0ddedc18f700f85d25f0934b7c9a619.js": "/study-firebase-app/precache-manifest.c0ddedc18f700f85d25f0934b7c9a619.js",
+    "precache-manifest.e818fb794a1005e238d57f17f3bb51d8.js": "/study-firebase-app/precache-manifest.e818fb794a1005e238d57f17f3bb51d8.js",
     "service-worker.js": "/study-firebase-app/service-worker.js",
-    "static/js/2.5c36ff71.chunk.js.LICENSE.txt": "/study-firebase-app/static/js/2.5c36ff71.chunk.js.LICENSE.txt"
+    "static/css/main.9eaae338.chunk.css.map": "/study-firebase-app/static/css/main.9eaae338.chunk.css.map",
+    "static/js/2.b5cb41f7.chunk.js.LICENSE.txt": "/study-firebase-app/static/js/2.b5cb41f7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dbd9457f.js",
-    "static/js/2.5c36ff71.chunk.js",
-    "static/js/main.4009e2ca.chunk.js"
+    "static/js/2.b5cb41f7.chunk.js",
+    "static/css/main.9eaae338.chunk.css",
+    "static/js/main.90fbcc24.chunk.js"
   ]
 }
