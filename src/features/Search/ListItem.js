@@ -1,13 +1,57 @@
 import React, { useEffect, useState, useRef } from "react";
+import styled from "styled-components";
+
 import blank from "assets/images/blank.png";
 
-const ListItem = ({ thumbnail = blank, title, authors, price }) => {
+const S = {
+  Article: styled.article`
+    display: flex;
+    height: 100%;
+
+    header {
+      min-width: 120px;
+      height: 100%;
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.03);
+    }
+  `,
+  Content: styled.ul`
+    position: relative;
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+
+    li {
+      margin-top: 8px;
+
+      &:first-of-type {
+        margin-top: 0;
+        font-weight: bold;
+      }
+
+      &:not(:first-of-type) {
+        color: #666;
+      }
+
+      &:last-of-type {
+        position: absolute;
+        right: 0;
+        bottom: 8px;
+      }
+    }
+  `
+};
+
+const ListItem = ({ thumbnail, title, authors, price }) => {
   const itemElement = useRef();
   const [src, setSrc] = useState(blank);
 
   useEffect(() => {
     const iObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && thumbnail) {
         setSrc(thumbnail);
       }
     });
@@ -17,16 +61,17 @@ const ListItem = ({ thumbnail = blank, title, authors, price }) => {
   }, [itemElement, thumbnail]);
 
   return (
-    <article ref={itemElement}>
+    <S.Article ref={itemElement}>
       <header>
         <img src={src} alt={title} />
       </header>
-      <ul>
+
+      <S.Content>
         <li>{title}</li>
         <li>{authors.join(", ")}</li>
         <li>{price.toLocaleString()}원</li>
-      </ul>
-    </article>
+      </S.Content>
+    </S.Article>
   );
 };
 

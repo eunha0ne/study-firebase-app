@@ -7,15 +7,13 @@ import {
 } from "app/firebaseInstance";
 import { showModal } from "features/Modal/modalSlice";
 
+import * as S from "./Auth.style";
+
 const Auth = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isNewAccount, setIsNewAccount] = useState(false);
-
-  const toggleAccout = () => {
-    setIsNewAccount(!isNewAccount);
-  };
+  const [isNewAccount, setIsNewAccount] = useState(true);
 
   const onChange = ({ target }) => {
     const { type, value } = target;
@@ -67,15 +65,17 @@ const Auth = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <S.Container>
+      <S.Form onSubmit={onSubmit}>
         <p>
+          {" "}
+          환영합니다 :) <br />
           {isNewAccount
             ? "새로운 계정을 생성해 보세요."
             : "사용자 계정으로 로그인합니다."}
         </p>
-        <label>
-          이메일
+        <S.Label>
+          <span>이메일</span>
           <input
             type="email"
             placeholder="email"
@@ -83,9 +83,9 @@ const Auth = () => {
             required
             onChange={onChange}
           />
-        </label>
-        <label>
-          암호
+        </S.Label>
+        <S.Label>
+          <span>암호</span>
           <input
             type="password"
             placeholder="password"
@@ -93,24 +93,30 @@ const Auth = () => {
             required
             onChange={onChange}
           />
-        </label>
-        <label>
+        </S.Label>
+        <S.Submit>
           <input type="submit" value="확인" />
-        </label>
-      </form>
+        </S.Submit>
+      </S.Form>
 
-      <div>
-        <button type="button" onClick={toggleAccout}>
-          {isNewAccount ? "로그인하기" : "가입하기"}
+      <S.Toggle>
+        <button type="button" onClick={() => setIsNewAccount(false)}>
+          로그인하기
         </button>
-        <button name="google" onClick={onClick}>
+        <button type="button" onClick={() => setIsNewAccount(true)}>
+          가입하기
+        </button>
+      </S.Toggle>
+
+      <S.ButtonGroup>
+        <S.Button name="google" onClick={onClick}>
           구글 로그인
-        </button>
-        <button name="github" onClick={onClick}>
+        </S.Button>
+        <S.Button name="github" onClick={onClick}>
           깃헙 로그인
-        </button>
-      </div>
-    </div>
+        </S.Button>
+      </S.ButtonGroup>
+    </S.Container>
   );
 };
 

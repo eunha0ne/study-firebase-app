@@ -1,12 +1,32 @@
 import React from "react";
+import styled from "styled-components";
+
+const S = {
+  Footer: styled.footer`
+    width: 100%;
+    margin: 32px auto;
+
+    p {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    i {
+      font-style: normal;
+      color: #1cbaba;
+    }
+  `
+};
 
 const Footer = () => (
-  <footer>
+  <S.Footer>
     <p>
-      &copy; {new Date().getFullYear()} eunha0ne All rights reserved. <br />
+      &copy; {new Date().getFullYear()} <i>eunha0ne</i> All rights reserved.{" "}
+      <br />
       Built With React, Redux and FireBase.
     </p>
-  </footer>
+  </S.Footer>
 );
 
 export default Footer;

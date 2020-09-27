@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { authService } from "app/firebaseInstance";
 
 import useLoggedInState from "hooks/useLoggedInState";
-
 import Navigation from "./Navigation";
-import SearchBar from "./SearchBar";
+import * as S from "./Header.style";
 
 const Header = () => {
   const isLoggedIn = useLoggedInState();
@@ -26,21 +25,21 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <h1>Eunha's FireBase App</h1>
+    <S.Header>
+      <S.Title>프토로타이핑 앱</S.Title>
       {isLoggedIn && (
-        <>
+        <S.RightArea>
           <Navigation />
-          <SearchBar />
-          <article>
+          <S.UserPresence>
             <p>
-              환영합니다! <strong>{userName}</strong>
+              환영합니다! <br />
+              <strong>{userName}</strong>
             </p>
             <button onClick={onClick}>로그아웃</button>
-          </article>
-        </>
+          </S.UserPresence>
+        </S.RightArea>
       )}
-    </header>
+    </S.Header>
   );
 };
 

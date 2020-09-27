@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { dbService } from "../app/firebaseInstance";
+import { dbService } from "app/firebaseInstance";
+
+import * as S from "./Stock.style";
 
 const Stock = ({ user, data }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -23,7 +25,7 @@ const Stock = ({ user, data }) => {
   const updateItem = async ({ id }) => {
     await dbService.doc(`stock/${id}`).update({
       name: editedName,
-      price: editedPrice,
+      price: parseInt(editedPrice).toLocaleString(),
       quantity: editedQuantity
     });
     resetState();
@@ -56,9 +58,9 @@ const Stock = ({ user, data }) => {
         const isCurrentEdit = currentId === id && isEditable;
 
         return (
-          <li key={index}>
-            <dl>
-              <dt>이름</dt>
+          <S.List key={index}>
+            <S.Group>
+              <dt>이름:</dt>
               <dd>
                 {isCurrentEdit ? (
                   <input
@@ -71,7 +73,7 @@ const Stock = ({ user, data }) => {
                   name
                 )}
               </dd>
-              <dt>가격</dt>
+              <dt>가격:</dt>
               <dd>
                 {isCurrentEdit ? (
                   <input
@@ -84,7 +86,7 @@ const Stock = ({ user, data }) => {
                   price.toLocaleString()
                 )}
               </dd>
-              <dt>수량</dt>
+              <dt>수량:</dt>
               <dd>
                 {isCurrentEdit ? (
                   <input
@@ -97,11 +99,10 @@ const Stock = ({ user, data }) => {
                   quantity
                 )}
               </dd>
-            </dl>
+            </S.Group>
 
             {hasAuth && (
-              <div>
-                <button onClick={() => deleteItem({ id })}>삭제</button>
+              <S.ButtonGroup>
                 {isCurrentEdit ? (
                   <button onClick={() => updateItem({ id })}>확인</button>
                 ) : (
@@ -111,9 +112,10 @@ const Stock = ({ user, data }) => {
                     수정하기
                   </button>
                 )}
-              </div>
+                <button onClick={() => deleteItem({ id })}>삭제</button>
+              </S.ButtonGroup>
             )}
-          </li>
+          </S.List>
         );
       })}
     </ul>
