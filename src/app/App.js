@@ -11,15 +11,18 @@ import Modal from "features/Modal";
 import Header from "components/Header";
 import Footer from "components/Footer";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle` 
   body {
     margin: 0;
   }
 
   #root {
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     max-width: 940px;
-    font-family: 'NanumSquareRound', sans-serif;
+    height: 100%;
+    font-family: 'NanumSquareRound', sans-serif;  
   }
   
   dl,
@@ -38,11 +41,11 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin: 0;
   }
+  
+  main {
+    min-height: 80vh;
+  }
 `;
-
-const S = {
-  Main: styled.main``
-};
 
 function App() {
   const { modalState } = useSelector((state) => ({
@@ -60,10 +63,10 @@ function App() {
       </Helmet>
 
       <Header />
-      <S.Main>
+      <main>
         <AppRouter />
         {modalState.isOpen && <Modal {...modalState} />}
-      </S.Main>
+      </main>
       <Footer />
 
       <GlobalStyle />

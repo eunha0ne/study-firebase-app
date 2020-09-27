@@ -13,11 +13,7 @@ const Auth = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isNewAccount, setIsNewAccount] = useState(false);
-
-  const toggleAccout = () => {
-    setIsNewAccount(!isNewAccount);
-  };
+  const [isNewAccount, setIsNewAccount] = useState(true);
 
   const onChange = ({ target }) => {
     const { type, value } = target;

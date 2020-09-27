@@ -35,7 +35,10 @@ export const List = styled.li`
 export const Group = styled.dl`
   padding: 0 16px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr) minmax(150px, 1fr));
+  grid-template-columns: auto minmax(200px, 1fr) repeat(
+      2,
+      auto minmax(150px, auto)
+    );
   grid-template-rows: 40px;
   grid-gap: 8px;
   align-items: center;
