@@ -8,8 +8,8 @@ import Header from "components/Header";
 import Footer from "components/Footer";
 
 function App() {
-  const { modal: modalState } = useSelector((state) => ({
-    modal: state.modal
+  const { modalState } = useSelector((state) => ({
+    modalState: state.modal
   }));
 
   return (

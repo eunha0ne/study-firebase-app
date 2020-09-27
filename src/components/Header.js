@@ -28,15 +28,17 @@ const Header = () => {
   return (
     <header>
       <h1>Eunha's FireBase App</h1>
-      {isLoggedIn && <Navigation />}
-      <SearchBar />
       {isLoggedIn && (
-        <article>
-          <p>
-            환영합니다! <strong>{userName}</strong>
-          </p>
-          <button onClick={onClick}>로그아웃</button>
-        </article>
+        <>
+          <Navigation />
+          <SearchBar />
+          <article>
+            <p>
+              환영합니다! <strong>{userName}</strong>
+            </p>
+            <button onClick={onClick}>로그아웃</button>
+          </article>
+        </>
       )}
     </header>
   );

@@ -1,5 +1,16 @@
 import React from "react";
 
-const Home = () => <div>Home</div>;
+import SearchResult from "features/Search";
+
+const Home = () => {
+  return (
+    <section>
+      <header>
+        <h2>검색 결과</h2>
+      </header>
+      <SearchResult />
+    </section>
+  );
+};
 
 export default Home;
