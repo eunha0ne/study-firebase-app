@@ -1,17 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import styled, { createGlobalStyle } from "styled-components";
+import "assets/styles/normalize.css";
 
 import AppRouter from "./AppRouter";
 import Modal from "features/Modal";
 import Header from "components/Header";
 import Footer from "components/Footer";
 
-const GlobalStyle = createGlobalStyle`  
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+
   #root {
     margin: 0 auto;
     max-width: 1024px;
+    font-family: 'NanumSquareRound', sans-serif;
   }
   
   ul,
@@ -30,9 +38,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const S = {
-  Main: styled.main`
-    border: 1px solid red;
-  `
+  Main: styled.main``
 };
 
 function App() {
@@ -42,12 +48,21 @@ function App() {
 
   return (
     <Router>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css"
+        />
+      </Helmet>
+
       <Header />
       <S.Main>
         <AppRouter />
         {modalState.isOpen && <Modal {...modalState} />}
       </S.Main>
       <Footer />
+
       <GlobalStyle />
     </Router>
   );
