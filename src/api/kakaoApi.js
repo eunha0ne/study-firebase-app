@@ -13,7 +13,7 @@ const request = async (url) => {
 
 const kakaoApi = {
   fetchBooks(keyword) {
-    return request(`${BASE_URL}/search/book?query=${keyword}`);
+    return request(`${BASE_URL}/search/book?query=${keyword}&size=30`);
   }
 };
 
