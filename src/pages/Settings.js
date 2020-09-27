@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { dbService } from "app/firebaseInstance";
 
 import { showModal } from "features/Modal/modalSlice";
+import Stock from "components/Stock";
 
 const Settings = ({ user }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,6 @@ const Settings = ({ user }) => {
     event.preventDefault();
 
     try {
-      console.log(user);
       await dbService.collection("stock").add({
         name: name,
         price: price,
@@ -52,16 +52,28 @@ const Settings = ({ user }) => {
     let data = [];
     const response = await dbService.collection("stock").get();
     response.forEach((document) => {
-      data.push(document.data());
+      data.push({ id: document.id, ...document.data() });
     });
 
     return data;
+  };
+
+  const onStockItemChange = () => {
+    dbService.collection("stock").onSnapshot((snapshot) => {
+      const updatedData = snapshot.docs.map((document) => ({
+        id: document.id,
+        ...document.data()
+      }));
+
+      setStock(updatedData);
+    });
   };
 
   useEffect(() => {
     getStockItems().then((data) => {
       setStock(data);
     });
+    onStockItemChange();
   }, []);
 
   return (
@@ -106,21 +118,7 @@ const Settings = ({ user }) => {
           <input type="submit" value="확인" />
         </label>
       </form>
-
-      <ul>
-        {stock.map(({ name, price, quantity }, index) => (
-          <li key={index}>
-            <dl>
-              <dt>이름</dt>
-              <dd>{name}</dd>
-              <dt>가격</dt>
-              <dd>{price.toLocaleString()}</dd>
-              <dt>수량</dt>
-              <dd>{quantity}</dd>
-            </dl>
-          </li>
-        ))}
-      </ul>
+      <Stock user={user} data={stock} />
     </section>
   );
 };
