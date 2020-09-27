@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { hideModal } from "features/modal/modalSlice";
+import { hideModal } from "./modalSlice";
 
-const Modal = ({ message }) => {
+const Index = ({ message }) => {
   const dispatch = useDispatch();
   const onClose = () => {
     dispatch(hideModal());
@@ -17,4 +17,4 @@ const Modal = ({ message }) => {
   );
 };
 
-export default Modal;
+export default Index;

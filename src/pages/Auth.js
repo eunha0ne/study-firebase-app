@@ -5,7 +5,7 @@ import {
   instance as firebaseInstance,
   authService
 } from "app/firebaseInstance";
-import { showModal } from "features/modal/modalSlice";
+import { showModal } from "features/Modal/modalSlice";
 
 const Auth = () => {
   const dispatch = useDispatch();

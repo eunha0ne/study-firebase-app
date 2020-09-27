@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
 
 import AppRouter from "./AppRouter";
+import Modal from "features/Modal";
 import Header from "components/Header";
 import Footer from "components/Footer";
-import Modal from "features/modal/Modal";
 
 function App() {
   const { modal: modalState } = useSelector((state) => ({
