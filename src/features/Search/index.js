@@ -1,6 +1,6 @@
 import React from "react";
 
-import List from "components/List";
+import List from "features/Search/List";
 import { useSelector } from "react-redux";
 
 const Index = () => {
