@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     margin: 0 auto;
-    max-width: 1024px;
+    max-width: 940px;
     font-family: 'NanumSquareRound', sans-serif;
   }
   
