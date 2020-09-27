@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { HashRouter as Router } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import "assets/styles/normalize.css";
 
 import AppRouter from "./AppRouter";

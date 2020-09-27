@@ -33,7 +33,7 @@ const Settings = ({ user }) => {
     try {
       await dbService.collection("stock").add({
         name: name,
-        price: price,
+        price: parseInt(price).toLocaleString(),
         quantity: quantity,
         maintainer: user.uid
       });

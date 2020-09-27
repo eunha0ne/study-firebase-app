@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-const baseReset = `
-    outline: none;
-    background: none;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-`;
-
 const baseButton = `
   height: 45px;
   outline: none;
