@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import styled from "styled-components";
 
 import blank from "assets/images/blank.png";
@@ -60,17 +60,26 @@ const ListItem = ({ thumbnail, title, authors, price }) => {
     return () => iObserver.disconnect();
   }, [itemElement, thumbnail]);
 
+  const ListItemContent = ({ title, authors, price }) => (
+    <S.Content>
+      <li>{title}</li>
+      <li>{authors.join(", ")}</li>
+      <li>{price.toLocaleString()}원</li>
+    </S.Content>
+  );
+
   return (
     <S.Article ref={itemElement}>
       <header>
         <img src={src} alt={title} />
       </header>
 
-      <S.Content>
-        <li>{title}</li>
-        <li>{authors.join(", ")}</li>
-        <li>{price.toLocaleString()}원</li>
-      </S.Content>
+      {useMemo(
+        () => (
+          <ListItemContent title={title} authors={authors} price={price} />
+        ),
+        [title, authors, price]
+      )}
     </S.Article>
   );
 };
