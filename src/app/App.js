@@ -22,6 +22,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'NanumSquareRound', sans-serif;
   }
   
+  dl,
+  dt,
+  dd,
   ul,
   li {
     margin: 0;
