@@ -12,11 +12,7 @@ const SearchBar = () => {
     }
   };
 
-  const onChange = (event) => {
-    console.log("change", event.target.value);
-  };
-
-  return <input type="text" onChange={onChange} onKeyUp={onKeyUp} />;
+  return <input type="text" onKeyUp={onKeyUp} />;
 };
 
 export default SearchBar;
