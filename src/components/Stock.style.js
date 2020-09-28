@@ -36,6 +36,11 @@ export const Group = styled.dl`
   grid-gap: 8px;
   align-items: center;
 
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, auto minmax(100px, auto));
+    font-size: 0.8rem;
+  }
+
   @media (max-width: 576px) {
     grid-template-columns: auto minmax(100px, 1fr) repeat(
         2,
