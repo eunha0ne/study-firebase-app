@@ -19,7 +19,9 @@ const S = {
   `,
   ItemContainer: styled.li`
     padding: 8px;
+    display: flex;
     min-height: 150px;
+    max-height: 292px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
     &:hover {

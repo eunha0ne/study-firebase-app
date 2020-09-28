@@ -6,7 +6,7 @@ import blank from "assets/images/blank.png";
 const S = {
   Article: styled.article`
     display: flex;
-    height: 100%;
+    width: 100%;
 
     header {
       min-width: 120px;
