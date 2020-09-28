@@ -63,7 +63,7 @@ const Stock = ({ user, data }) => {
               <dt>이름:</dt>
               <dd>
                 {isCurrentEdit ? (
-                  <input
+                  <S.EditInput
                     type="text"
                     name="name"
                     onChange={onChange}
@@ -76,7 +76,7 @@ const Stock = ({ user, data }) => {
               <dt>가격:</dt>
               <dd>
                 {isCurrentEdit ? (
-                  <input
+                  <S.EditInput
                     type="text"
                     name="price"
                     onChange={onChange}
@@ -89,7 +89,7 @@ const Stock = ({ user, data }) => {
               <dt>수량:</dt>
               <dd>
                 {isCurrentEdit ? (
-                  <input
+                  <S.EditInput
                     type="text"
                     name="quantity"
                     onChange={onChange}

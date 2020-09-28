@@ -7,6 +7,11 @@ const baseButton = `
   border: 1px solid #ddd;
   border-radius: 4px;
   
+  @media (max-width: 576px) {
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  
   &:hover {
     cursor: pointer;
     background: rgba(94, 223, 223, 0.1);
@@ -54,7 +59,10 @@ export const Group = styled.dl`
   }
 
   dd {
+    display: flex;
+    align-items: center;
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -67,6 +75,16 @@ export const Submit = styled.label`
     width: 100%;
     ${baseButton};
   }
+`;
+
+export const EditInput = styled.input`
+  width: 100%;
+  height: 70%;
+  padding: 0 8px;
+  outline: none;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 `;
 
 export const ButtonGroup = styled.div`
