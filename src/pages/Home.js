@@ -10,12 +10,16 @@ const S = {
     padding: 0 16px;
   `,
   Header: styled.header`
+    margin: 16px 0;
     display: flex;
     align-items: center;
 
     h2 {
       font-size: 1.6rem;
       margin-right: 24px;
+      @media (max-width: 576px) {
+        font-size: 0.8rem;
+      }
     }
   `
 };

@@ -6,13 +6,17 @@ const S = {
   Nav: styled.nav`
     height: 100%;
     margin-right: 60px;
+
+    @media (max-width: 576px) {
+      margin-right: 16px;
+    }
   `,
   List: styled.ul`
     display: flex;
     height: 100%;
   `,
   Item: styled.li`
-    margin: 0 15px;
+    margin: 0 8px;
     min-width: 50px;
 
     a {
@@ -24,9 +28,10 @@ const S = {
       text-decoration: none;
       box-sizing: border-box;
       color: inherit;
+      border-bottom: 3px solid transparent;
 
       &.is-selected {
-        border-bottom: 2px solid #1cbaba;
+        border-bottom: 3px solid #1cbaba;
       }
     }
   `

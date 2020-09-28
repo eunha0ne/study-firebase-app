@@ -8,6 +8,10 @@ export const Header = styled.header`
 
   > * {
     margin: 0 16px;
+    @media (max-width: 576px) {
+      margin: 0 8px;
+      font-size: 0.8rem;
+    }
   }
 
   &::before {
@@ -24,6 +28,9 @@ export const Header = styled.header`
 
 export const Title = styled.h1`
   font-size: 1.3rem;
+  @media (max-width: 576px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const RightArea = styled.div`
@@ -41,5 +48,8 @@ export const UserPresence = styled.div`
 
   button {
     margin-left: 16px;
+    @media (max-width: 576px) {
+      margin-right: 8px;
+    }
   }
 `;

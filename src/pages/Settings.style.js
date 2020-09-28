@@ -28,14 +28,21 @@ export const Container = styled.section`
 
 export const Form = styled.form`
   fieldset {
-    margin: 30px auto;
+    margin: 16px auto;
     padding: 16px 32px;
     display: flex;
     flex-direction: column;
     width: 420px;
+    box-sizing: border-box;
     border: 1px solid #d7d7d7;
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 576px) {
+      margin: 16px;
+      width: calc(100% - 32px);
+      font-size: 0.8rem;
+    }
   }
 `;
 
@@ -55,6 +62,10 @@ export const Label = styled.label`
     padding: 0 8px;
     width: 100%;
     height: 40px;
+
+    @media (max-width: 576px) {
+      height: 32px;
+    }
   }
 `;
 
